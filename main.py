@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import re
+import pprint
 
 read_chat_file = open("Andile_Chat.txt", encoding="utf-8")
 #read_chat_file = open("tes.txt", encoding="utf-8")
