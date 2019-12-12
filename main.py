@@ -48,7 +48,7 @@ def TotalUserMessages(chat_read, user):
 
 # print(TotalNumberOfMessages(chat))
 user1 = TotalUserMessages(chat, "Him")
-user2 = TotalUserMessages(chat, "Andile")
+user2 = TotalUserMessages(chat, "Her")
 print("Total number of messages: " + TotalNumberOfMessages(user1, user2))
 
 read_chat_file.close()
