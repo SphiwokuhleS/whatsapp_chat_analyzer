@@ -3,17 +3,6 @@
 import re
 import pprint
 
-
-# 11/29/19, 8:29 PM - Andile: Mondayjhdjshdjshdjhdjs# yewah.
-# 11/29/19, 8:30 PM - Him: Will talk When I get home
-# 11/29/19, 8:29 PM - Him: I will..
-# 11/29/19, 8:30 PM - Andile: Nno maaan...suthi you wil, you will Lana...hamba now
-# 11/29/19, 9:34 PM - Him: Got home a while ago
-# 11/29/19, 9:35 PM - Him: Had some food and put some clove on my tooth
-# 11/29/19, 8:30 PM - Andile: Okay
-# 11/29/19, 9:35 PM - Him: If it doesn't work I'll take a grandpa
-# 11/29/19, 11:06 PM - Andile: Oh...was watching some movie...
-
 read_chat_file = open("tes.txt", encoding="utf-8")
 chat = read_chat_file.readlines()
 
