@@ -5,7 +5,31 @@ import pprint
 
 read_chat_file = open("tes.txt", encoding="utf-8")
 chat = read_chat_file.readlines()
+frank = read_chat_file.readline()
 
+
+# with open('tes.txt', 'r') as reader:
+#     pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
+#     line = reader.readline()
+#     while line != '':
+#         if pattern.match(line):
+#             remove = re.sub(pattern,'', line) #remove the date for every line
+#             words = remove.lstrip()
+#             print(words, end='')
+#             line = reader.readline()
+#         else: 
+#             # pattern.match(line) == line != True
+#             # print(words)
+#             print("not")
+#             line = reader.readline()
+
+#     for line in reader:
+# with open('tes.txt', 'r') as reader:
+#         print(line, end=" ")
+
+
+
+# print(chat)
 def countwords(chat_read):
     #exlcude_date = re.match("(\d{2}/{3}),\s", chat_read, re.I)
     word_counter = 1
@@ -25,8 +49,6 @@ def TTotalNumberOfMessages(chat_read):
 
 # test = "11/29/19, 8:30 PM - Andile: Nno maaan...suthi you wil, you will Lana...hamba now"
 
-
-
 # exclude_date = re.match("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:", chat)
 
 # reg_to_excl = exclude_date.group()
@@ -34,22 +56,33 @@ def TTotalNumberOfMessages(chat_read):
 # excl = chat.strip(reg_to_excl)
 # pattern = re.compile("\d{2}/")
 
+
+
+
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 array_pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
 
-# for i in range(len(chat)):
-#     if array_pattern.match(chat[i]):
-#         print(i, end="\t")
-#         print(chat[i])
-    # else:
-        # conc = chat[i-1] + chat[i]
-        # print(i, end= "\t")
-        # print(conc)
-        
+for i in range(len(chat)):
+    if array_pattern.match(chat[i]):
+        continue
+        # print(chat[i], end=" ")
+    elif array_pattern.match(chat[i])!= chat[i]: #find a way to print the redundant arrat elements
+        # print(i ,"Not True")
+        conc = chat[i-1] + chat[i]
+        # print(i, end= " ")
+        print(str(i) + "\t" + conc)
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 """""
 SOLVING THE PROBLEM OF NOT PRINTING THE WHOLE TEXT, BECAUSE THE READLINE FUNCTION READS LINES AND TURNS THEN INTO ARRAY ELENEBTS
 if the next element in the array doesn't natch the date pattern at the begigining 
     #concatinate the elements
     #else move to the next line
+"""""
+
+"""""
+Print the texts
+TODO 
 """""
 
 def StripDateInLine(chat_read):
@@ -60,6 +93,10 @@ def StripDateInLine(chat_read):
             remove = re.sub(pattern,'', line) #remove the date for every line
             words = remove.lstrip()
             pp.pprint(words)
+            
+
+# StripDateInLine(chat)
+# print(the)
 
 # print(chat)
 # print(exclude_date.groups())
