@@ -62,15 +62,15 @@ def TTotalNumberOfMessages(chat_read):
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 array_pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
 
+index_display = 0
 for i in range(len(chat)):
     if array_pattern.match(chat[i]):
-        continue
-        # print(chat[i], end=" ")
+        print(str(index_display) + "\t" + chat[i], end=" ")
+        index_display += 1
     elif array_pattern.match(chat[i])!= chat[i]: #find a way to print the redundant arrat elements
-        # print(i ,"Not True")
-        conc = chat[i-1] + chat[i]
-        # print(i, end= " ")
-        print(str(i) + "\t" + conc)
+        #print(i ,"Not True")
+        #print(i, end= " ")
+        print(chat[i],end = " ")
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 """""
