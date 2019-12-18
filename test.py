@@ -3,7 +3,7 @@
 import re
 import pprint
 
-read_chat_file = open("tes.txt", encoding="utf-8")
+read_chat_file = open("test_chat.txt", encoding="utf-8")
 chat = read_chat_file.readlines()
 frank = read_chat_file.readline()
 
@@ -56,22 +56,28 @@ def TTotalNumberOfMessages(chat_read):
 # excl = chat.strip(reg_to_excl)
 # pattern = re.compile("\d{2}/")
 
+def StripDateInLine(chat_read):
+    pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
+    pp = pprint.PrettyPrinter(indent=3)
+    for line in chat_read:
+        if pattern.match(line):
+            remove = re.sub(pattern,'', line) #remove the date for every line
+            words = remove.lstrip()
+            pp.pprint(words)
 
 
 
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-array_pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
+def ReadAllTexts(chati):
+    array_pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
+    index_display = 0
+    for i in range(len(chati)):
+        if array_pattern.match(chat[i]):
+            print(chati[i])
+            index_display += 1
+        elif array_pattern.match(chati[i])!= chati[i]:
+            print(chati[i])
 
-index_display = 0
-for i in range(len(chat)):
-    if array_pattern.match(chat[i]):
-        print(str(index_display) + "\t" + chat[i], end=" ")
-        index_display += 1
-    elif array_pattern.match(chat[i])!= chat[i]: #find a way to print the redundant arrat elements
-        #print(i ,"Not True")
-        #print(i, end= " ")
-        print(chat[i],end = " ")
-#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+words = ReadAllTexts(chat)
 
 """""
 SOLVING THE PROBLEM OF NOT PRINTING THE WHOLE TEXT, BECAUSE THE READLINE FUNCTION READS LINES AND TURNS THEN INTO ARRAY ELENEBTS
@@ -89,7 +95,7 @@ def StripDateInLine(chat_read):
     pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
     pp = pprint.PrettyPrinter(indent=3)
     for line in chat_read:
-        if pattern.match(line):
+        if pattern.match(line): 
             remove = re.sub(pattern,'', line) #remove the date for every line
             words = remove.lstrip()
             pp.pprint(words)
