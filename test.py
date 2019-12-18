@@ -79,8 +79,6 @@ def StripDateInLine(chat_read):
             pp.pprint(words)
 
 
-
-<<<<<<< HEAD
 def ReadAllTexts(chati):
     array_pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
     index_display = 0
@@ -91,13 +89,13 @@ def ReadAllTexts(chati):
         elif array_pattern.match(chati[i])!= chati[i]:
             print(chati[i])
 
-words = ReadAllTexts(chat)
-=======
+# words = ReadAllTexts(chat)
+
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 array_pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
 print(DisplayChatWithIndex(chat,array_pattern))
 #/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
->>>>>>> 5b0ef743c03e29962f062423978f7409569be816
+
 
 """""
 SOLVING THE PROBLEM OF NOT PRINTING THE WHOLE TEXT, BECAUSE THE READLINE FUNCTION READS LINES AND TURNS THEN INTO ARRAY ELENEBTS
@@ -110,16 +108,6 @@ if the next element in the array doesn't natch the date pattern at the begiginin
 Print the texts
 TODO 
 """""
-
-def StripDateInLine(chat_read):
-    pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
-    pp = pprint.PrettyPrinter(indent=3)
-    for line in chat_read:
-        if pattern.match(line): 
-            remove = re.sub(pattern,'', line) #remove the date for every line
-            words = remove.lstrip()
-            pp.pprint(words)
-            
 
 # StripDateInLine(chat)
 # print(the)
