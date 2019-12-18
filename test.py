@@ -47,6 +47,19 @@ def TTotalNumberOfMessages(chat_read):
             message_counter+=1
     return(message_counter)
 
+def DisplayChatWithIndex(chat,pattern):
+    index_display = 0
+    display_string = ''
+    for i in range(len(chat)):
+        if array_pattern.match(chat[i]):
+            display_string += str(index_display) + "\t" + chat[i]
+            index_display += 1
+        elif array_pattern.match(chat[i])!= chat[i]: #find a way to print the redundant arrat elements
+            #print(i ,"Not True")
+            #print(i, end= " ")
+            display_string += chat[i]
+    return display_string
+
 # test = "11/29/19, 8:30 PM - Andile: Nno maaan...suthi you wil, you will Lana...hamba now"
 
 # exclude_date = re.match("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:", chat)
@@ -67,6 +80,7 @@ def StripDateInLine(chat_read):
 
 
 
+<<<<<<< HEAD
 def ReadAllTexts(chati):
     array_pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
     index_display = 0
@@ -78,6 +92,12 @@ def ReadAllTexts(chati):
             print(chati[i])
 
 words = ReadAllTexts(chat)
+=======
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+array_pattern = re.compile("\d{1,2}/\d{1,2}/\d{1,2},\s\d{1,2}:\d{1,2}\s(A|P)M\s-\s\w+:")
+print(DisplayChatWithIndex(chat,array_pattern))
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+>>>>>>> 5b0ef743c03e29962f062423978f7409569be816
 
 """""
 SOLVING THE PROBLEM OF NOT PRINTING THE WHOLE TEXT, BECAUSE THE READLINE FUNCTION READS LINES AND TURNS THEN INTO ARRAY ELENEBTS
