@@ -52,7 +52,8 @@ def DisplayChatWithIndex(chat,pattern):
     display_string = ''
     for i in range(len(chat)):
         if array_pattern.match(chat[i]):
-            display_string += str(index_display) + "\t" + chat[i]
+            remove = re.sub(pattern,'', chat[i]) #remove the date for every line
+            display_string += remove.lstrip()
             index_display += 1
         elif array_pattern.match(chat[i])!= chat[i]: #find a way to print the redundant arrat elements
             #print(i ,"Not True")
